@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://gk7uctqtmnj2"]
+
+[ext_resource type="Script" path="res://Games/FlappyGodot/components/columns/empty_column/empty_column.gd" id="1_wes3o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ktuy"]
+friction = 0.0
+
+[node name="Empty Column" type="RigidBody2D"]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_8ktuy")
+gravity_scale = 0.0
+linear_velocity = Vector2(-300, 0)
+script = ExtResource("1_wes3o")
+
+[node name="TopCollision" type="CollisionPolygon2D" parent="."]
+
+[node name="BottomCollision" type="CollisionPolygon2D" parent="."]
+
+[node name="TopPoly" type="Polygon2D" parent="."]
+color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[node name="BottomPoly" type="Polygon2D" parent="."]
+color = Color(0.136826, 0.136826, 0.136826, 1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

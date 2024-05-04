@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf8hu5tjrmu6y"]
+
+[ext_resource type="Theme" uid="uid://ew6khkrf7ync" path="res://Themes/base_theme.tres" id="1_jecl0"]
+[ext_resource type="Script" path="res://MainMenu/entry_scene.gd" id="1_lrobn"]
+
+[node name="EntryScene" type="Node2D"]
+script = ExtResource("1_lrobn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="GameTitleContainer" type="CenterContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="GameTitle" type="RichTextLabel" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/GameTitleContainer"]
+layout_mode = 2
+theme = ExtResource("1_jecl0")
+theme_type_variation = &"HeadingLabel"
+bbcode_enabled = true
+text = "[center]Kaos Arcade 10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="FlappyGodot" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FlappyGodot"
+
+[node name="Button2" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "untitled game"
+
+[node name="Button3" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "untitled game two"
+
+[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer/FlappyGodot" to="." method="_on_flappy_godot_pressed"]

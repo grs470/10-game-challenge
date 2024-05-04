@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://2bardkwg6fv1"]
+
+[ext_resource type="Script" path="res://Games/FlappyGodot/scenes/game_running/game.gd" id="1_40mfb"]
+[ext_resource type="Texture2D" uid="uid://b2oj564t8oqqg" path="res://Games/FlappyGodot/assets/blue.png" id="1_p7qm8"]
+[ext_resource type="PackedScene" uid="uid://op2svqkgeg0q" path="res://Games/FlappyGodot/components/sprites/player/player.tscn" id="3_8m2rj"]
+[ext_resource type="PackedScene" uid="uid://cvbe4o0mxic3r" path="res://Games/FlappyGodot/components/columns/high_pass/high_pass.tscn" id="4_m24k5"]
+[ext_resource type="PackedScene" uid="uid://bwl20xvlw6bp0" path="res://Games/FlappyGodot/components/sprites/generator/generator.tscn" id="5_f350c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6ro7"]
+size = Vector2(6.5, 728)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_40mfb")
+
+[node name="Player" parent="." instance=ExtResource("3_8m2rj")]
+position = Vector2(203, 264)
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 1279.0
+offset_bottom = 718.0
+texture = ExtResource("1_p7qm8")
+stretch_mode = 1
+
+[node name="Generator" parent="." instance=ExtResource("5_f350c")]
+
+[node name="High Pass" parent="." instance=ExtResource("4_m24k5")]
+position = Vector2(903, 2)
+
+[node name="Foreground" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="Foreground"]
+offset_left = 62.0
+offset_top = 54.0
+offset_right = 150.0
+offset_bottom = 77.0
+text = "Score: 9999"
+
+[node name="Score Zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score Zone"]
+position = Vector2(160.25, 348)
+shape = SubResource("RectangleShape2D_d6ro7")
+
+[connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
+[connection signal="column_despawn" from="Generator" to="." method="_on_generator_column_despawn"]
+[connection signal="column_spawned" from="Generator" to="." method="_on_generator_column_spawned"]
+[connection signal="body_exited" from="Score Zone" to="." method="_on_score_zone_body_exited"]

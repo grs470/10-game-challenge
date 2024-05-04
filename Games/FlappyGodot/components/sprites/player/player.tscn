@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://op2svqkgeg0q"]
+
+[ext_resource type="Script" path="res://Games/FlappyGodot/components/sprites/player/Player.gd" id="1_qx10c"]
+[ext_resource type="Texture2D" uid="uid://blps0axnpj3o7" path="res://Games/FlappyGodot/assets/icon.svg" id="2_gy4sc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oah8"]
+size = Vector2(64, 62)
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 2
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_qx10c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gy4sc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4oah8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
