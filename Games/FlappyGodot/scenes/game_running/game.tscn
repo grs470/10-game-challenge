@@ -1,10 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://2bardkwg6fv1"]
+[gd_scene load_steps=8 format=3 uid="uid://2bardkwg6fv1"]
 
 [ext_resource type="Script" path="res://Games/FlappyGodot/scenes/game_running/game.gd" id="1_40mfb"]
 [ext_resource type="Texture2D" uid="uid://b2oj564t8oqqg" path="res://Games/FlappyGodot/assets/blue.png" id="1_p7qm8"]
 [ext_resource type="PackedScene" uid="uid://op2svqkgeg0q" path="res://Games/FlappyGodot/components/sprites/player/player.tscn" id="3_8m2rj"]
 [ext_resource type="PackedScene" uid="uid://cvbe4o0mxic3r" path="res://Games/FlappyGodot/components/columns/high_pass/high_pass.tscn" id="4_m24k5"]
 [ext_resource type="PackedScene" uid="uid://bwl20xvlw6bp0" path="res://Games/FlappyGodot/components/sprites/generator/generator.tscn" id="5_f350c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsfg2"]
+bg_color = Color(0.230315, 0.230315, 0.230315, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6ro7"]
 size = Vector2(6.5, 728)
@@ -31,12 +38,27 @@ position = Vector2(903, 2)
 
 [node name="Foreground" type="CanvasLayer" parent="."]
 
-[node name="Score" type="Label" parent="Foreground"]
-offset_left = 62.0
-offset_top = 54.0
-offset_right = 150.0
-offset_bottom = 77.0
+[node name="PanelContainer" type="PanelContainer" parent="Foreground"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_right = 54.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsfg2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Foreground/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Score" type="Label" parent="Foreground/PanelContainer/MarginContainer"]
+layout_mode = 2
 text = "Score: 9999"
+horizontal_alignment = 1
 
 [node name="Score Zone" type="Area2D" parent="."]
 
