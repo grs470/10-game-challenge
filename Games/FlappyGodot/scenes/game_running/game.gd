@@ -44,7 +44,7 @@ func _on_player_body_entered(_body):
 func _on_player_player_left_screen():
 	show_game_over_screen()
 
-func _on_score_zone_body_exited(body):
+func _on_score_zone_body_exited(_body):
 	score += 1
 	set_score_label()
 
