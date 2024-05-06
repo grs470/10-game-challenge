@@ -45,6 +45,4 @@ position = Vector2(160.25, 348)
 shape = SubResource("RectangleShape2D_d6ro7")
 
 [connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
-[connection signal="column_despawn" from="Generator" to="." method="_on_generator_column_despawn"]
-[connection signal="column_spawned" from="Generator" to="." method="_on_generator_column_spawned"]
 [connection signal="body_exited" from="Score Zone" to="." method="_on_score_zone_body_exited"]

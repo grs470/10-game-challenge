@@ -13,6 +13,7 @@ corner_radius_bottom_left = 25
 font_size = 64
 
 [node name="GameOverMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -5,9 +5,7 @@ var max_speed = 1000
 
 signal player_left_screen
 
-func _ready():
-	process_mode = Node.PROCESS_MODE_DISABLED
-	
+
 func _physics_process(_delta):
 	
 	linear_velocity = linear_velocity.clamp(
