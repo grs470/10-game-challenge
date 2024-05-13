@@ -45,32 +45,10 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="FlappyGodot" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "FlappyGodot"
-
-[node name="Button2" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "untitled game"
-
-[node name="Button3" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "untitled game two"
-
-[node name="Quit" type="Button" parent="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
-layout_mode = 2
-text = "Exit"
-
-[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer/FlappyGodot" to="." method="_on_flappy_godot_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/HBoxContainer/VBoxContainer/HBoxContainer/ButtonContainer/Quit" to="." method="_on_quit_pressed"]
