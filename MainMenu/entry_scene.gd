@@ -7,6 +7,7 @@ const QUIT_STATE_TITLE = "Quit"
 # Dictionary of game/targets for button control
 var game_dict = {
 	"Flappy Godot": "res://Games/FlappyGodot/scenes/game_running/game.tscn",
+	"GoPong": "res://Games/Pong/Controller/game.tscn",
 	QUIT_STATE_TITLE: null,
 }
 

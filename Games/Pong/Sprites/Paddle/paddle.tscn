@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://du6oqainr3ytf"]
+
+[ext_resource type="Script" path="res://Games/Pong/Sprites/Paddle/paddle.gd" id="1_dky2f"]
+[ext_resource type="PackedScene" uid="uid://x7vdbp0m8w3e" path="res://Games/Pong/Sprites/CeilingFloor/ceiling_floor.tscn" id="2_mnebu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06l7t"]
+size = Vector2(40, 140)
+
+[node name="Paddle" type="Area2D"]
+script = ExtResource("1_dky2f")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.687215, 0.687215, 0.687215, 1)
+polygon = PackedVector2Array(-20, -75, 20, -75, 20, 75, -20, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_06l7t")
+
+[node name="Ceiling" parent="." instance=ExtResource("2_mnebu")]
+position = Vector2(-20, -73)
+scale = Vector2(0.035, 1)
+
+[node name="Floor" parent="." instance=ExtResource("2_mnebu")]
+position = Vector2(-19, 72)
+scale = Vector2(0.034, 1)
+bounce_direction = -1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

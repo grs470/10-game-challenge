@@ -14,7 +14,6 @@ func _ready():
 	pass
 
 func create(vertical_offset : int, view_max : int):
-	print("column offset ", vertical_offset)
 	if vertical_offset + opening_size > view_max:
 		vertical_offset = view_max - opening_size
 
