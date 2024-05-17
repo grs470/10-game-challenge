@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://duwrt5ekloupo"]
+
+[ext_resource type="Script" path="res://Games/Pong/Controller/game.gd" id="1_cgxbi"]
+[ext_resource type="Texture2D" uid="uid://4ybxiixyhnum" path="res://Games/Generic/assets/black.png" id="2_v5mes"]
+[ext_resource type="PackedScene" uid="uid://du6oqainr3ytf" path="res://Games/Pong/Sprites/Paddle/paddle.tscn" id="3_76qa5"]
+[ext_resource type="PackedScene" uid="uid://cj2p1kf7nt730" path="res://Games/Pong/Sprites/Ball/ball.tscn" id="4_smtgj"]
+[ext_resource type="PackedScene" uid="uid://x7vdbp0m8w3e" path="res://Games/Pong/Sprites/CeilingFloor/ceiling_floor.tscn" id="5_w2r15"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_cgxbi")
+GAME_TITLE = "Pong"
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v5mes")
+stretch_mode = 1
+
+[node name="Player1" parent="." instance=ExtResource("3_76qa5")]
+position = Vector2(37, 328)
+
+[node name="Player2" parent="." instance=ExtResource("3_76qa5")]
+position = Vector2(1115, 320)
+player_side = "player_2"
+bounce_direction = -1
+
+[node name="Ball" parent="." instance=ExtResource("4_smtgj")]
+position = Vector2(582, 319)
+
+[node name="Ceiling" parent="." instance=ExtResource("5_w2r15")]
+
+[node name="Floor" parent="." instance=ExtResource("5_w2r15")]
+position = Vector2(0, 648)
+bounce_direction = -1

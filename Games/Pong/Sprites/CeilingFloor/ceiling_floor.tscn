@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://x7vdbp0m8w3e"]
+
+[ext_resource type="Script" path="res://Games/Pong/Sprites/CeilingFloor/ceiling_floor.gd" id="1_4dx7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmwcj"]
+size = Vector2(1152, 4)
+
+[node name="Ceiling" type="Area2D"]
+script = ExtResource("1_4dx7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(577, 0.5)
+shape = SubResource("RectangleShape2D_dmwcj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

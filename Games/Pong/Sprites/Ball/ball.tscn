@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj2p1kf7nt730"]
+
+[ext_resource type="Texture2D" uid="uid://blps0axnpj3o7" path="res://Games/Generic/assets/icon.svg" id="1_3hii2"]
+[ext_resource type="Script" path="res://Games/Pong/Sprites/Ball/ball.gd" id="1_ljufb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etj01"]
+size = Vector2(55, 55)
+
+[node name="Ball" type="Area2D"]
+script = ExtResource("1_ljufb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_3hii2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_etj01")
