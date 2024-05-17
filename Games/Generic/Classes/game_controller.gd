@@ -3,7 +3,7 @@ class_name GameController extends Node2D
 var generic_menu = preload("res://Games/Generic/components/menu/menu.tscn")
 
 @onready var generic = generic_menu.instantiate()
-var canvas
+var menu_canvas
 @export var GAME_TITLE = "Title"
 var input_dictionary = {}
 var score = 0
@@ -23,8 +23,8 @@ func _exit_tree():
 		InputMap.erase_action(input)
 
 func _ready():
-	canvas = CanvasLayer.new()
-	self.add_child(canvas)
+	menu_canvas = CanvasLayer.new()
+	self.add_child(menu_canvas)
 	generic.connect("startPressed", _on_menu_start_pressed)
 	generic.connect("restartPressed", _on_menu_restart_pressed)
 	generic.connect("quitPressed", _on_menu_quit_pressed)
@@ -49,13 +49,13 @@ func _on_menu_restart_pressed():
 # Class Functions
 func connect_menu(type):
 	get_tree().paused = true
-	canvas.add_child(generic)
+	menu_canvas.add_child(generic)
 	generic.set_game_name(GAME_TITLE)
 	generic.set_type(type, score)
 	
 func disconnect_menu():
 	get_tree().paused = false
-	canvas.remove_child(generic)
+	menu_canvas.remove_child(generic)
 
 func show_game_over_screen():
 	connect_menu(generic.MenuType.GAMEOVER)

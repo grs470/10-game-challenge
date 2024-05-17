@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://2bardkwg6fv1"]
 
 [ext_resource type="Script" path="res://Games/FlappyGodot/scenes/game_running/game.gd" id="1_40mfb"]
-[ext_resource type="Texture2D" uid="uid://b2oj564t8oqqg" path="res://Games/FlappyGodot/assets/blue.png" id="1_p7qm8"]
+[ext_resource type="Texture2D" uid="uid://b2oj564t8oqqg" path="res://Games/Generic/assets/blue.png" id="1_p7qm8"]
 [ext_resource type="PackedScene" uid="uid://op2svqkgeg0q" path="res://Games/FlappyGodot/components/sprites/player/player.tscn" id="3_8m2rj"]
 [ext_resource type="PackedScene" uid="uid://cvbe4o0mxic3r" path="res://Games/FlappyGodot/components/columns/high_pass/high_pass.tscn" id="4_m24k5"]
 [ext_resource type="PackedScene" uid="uid://bwl20xvlw6bp0" path="res://Games/FlappyGodot/components/sprites/generator/generator.tscn" id="5_f350c"]
@@ -18,6 +18,7 @@ size = Vector2(6.5, 728)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_40mfb")
+GAME_TITLE = "FlappyGodot"
 
 [node name="Player" parent="." instance=ExtResource("3_8m2rj")]
 position = Vector2(203, 264)
